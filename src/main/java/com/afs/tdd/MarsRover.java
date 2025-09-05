@@ -14,7 +14,9 @@ public class MarsRover {
             } else if (location.getDirection().equals(Direction.E)) {
                 location.setXCoordinate(location.getXCoordinate() + 1);
             } else if (location.getDirection().equals(Direction.S)) {
-                location.setYCoordinate(location.getYCoordinate() -1);
+                location.setYCoordinate(location.getYCoordinate() - 1);
+            } else {
+                location.setXCoordinate(location.getXCoordinate() - 1);
             }
         }
     }
