@@ -2,6 +2,7 @@ package com.afs.tdd;
 
 public class MarsRover {
     private static final char MOVEMENT_COMMAND = 'M';
+    private static final char TURN_LEFT_COMMAND = 'L';
 
 
     private final Location location;
@@ -13,6 +14,8 @@ public class MarsRover {
     public String executeSingleCommand(char command) {
         if(command == MOVEMENT_COMMAND) {
            move();
+        } else if (command == TURN_LEFT_COMMAND) {
+            location.turnLeft();
         }
         return location.buildFormattedLocation();
     }

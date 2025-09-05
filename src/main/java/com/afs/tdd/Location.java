@@ -1,6 +1,12 @@
 package com.afs.tdd;
 
+import java.util.Map;
+
 public class Location {
+    private static final Map<Direction, Direction> DIR_TO_LEFT_DIR = Map.of(
+            Direction.N, Direction.W
+    );
+
     private int xCoordinate;
     private int yCoordinate;
     private Direction direction;
@@ -31,8 +37,8 @@ public class Location {
         this.yCoordinate = yCoordinate;
     }
 
-    public void setDirection(Direction direction) {
-        this.direction = direction;
+    public void turnLeft() {
+        this.direction = DIR_TO_LEFT_DIR.get(this.direction);
     }
 
     public String buildFormattedLocation() {
