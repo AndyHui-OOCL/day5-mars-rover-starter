@@ -135,16 +135,16 @@ class DemoTest {
     }
 
     @Test
-    void should_face_north_when_executeSingleCommand_given_Command_R_And_Direction_W(){
+    void should_face_south_when_executeSingleCommand_given_Command_R_And_Direction_E(){
         //Given
-        Location location = new Location(0,0, Direction.N);
+        Location location = new Location(0,0, Direction.E);
         MarsRover marsRover = new MarsRover(location);
 
         // When
         String result = marsRover.executeSingleCommand('R');
 
         // Then
-        Location expectedLocation = new Location(0,0, Direction.N);
+        Location expectedLocation = new Location(0,0, Direction.S);
         assertEquals(expectedLocation.buildFormattedLocation(), result);
     }
 }
