@@ -4,7 +4,8 @@ import java.util.Map;
 
 public class Location {
     private static final Map<Direction, Direction> DIR_TO_LEFT_DIR = Map.of(
-            Direction.N, Direction.W
+            Direction.N, Direction.W,
+            Direction.E, Direction.N
     );
 
     private int xCoordinate;
