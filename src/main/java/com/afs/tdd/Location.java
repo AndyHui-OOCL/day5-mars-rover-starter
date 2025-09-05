@@ -4,6 +4,7 @@ public class Location {
     private int xCoordinate;
     private int yCoordinate;
     private Direction direction;
+
     Location(int xCoordinate, int yCoordinate, Direction direction) {
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
@@ -18,6 +19,10 @@ public class Location {
         return yCoordinate;
     }
 
+    public Direction getDirection() {
+        return direction;
+    }
+
     public void setXCoordinate(int xCoordinate){
         this.xCoordinate = xCoordinate;
     }
@@ -26,11 +31,11 @@ public class Location {
         this.yCoordinate = yCoordinate;
     }
 
-    public Direction getDirection() {
-        return direction;
-    }
-
     public void setDirection(Direction direction) {
         this.direction = direction;
+    }
+
+    public String buildFormattedLocation() {
+        return xCoordinate + ":" + yCoordinate + ":"+ direction;
     }
 }

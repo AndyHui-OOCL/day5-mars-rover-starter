@@ -12,13 +12,11 @@ class DemoTest {
         MarsRover marsRover = new MarsRover(location);
 
         // When
-        marsRover.executeCommand(Command.M);
+        String result = marsRover.executeCommand(Command.M);
 
         // Then
         Location expectedLocation = new Location(0,1, Direction.N);
-        assertEquals(expectedLocation.getXCoordinate(), marsRover.getLocation().getXCoordinate());
-        assertEquals(expectedLocation.getYCoordinate(), marsRover.getLocation().getYCoordinate());
-        assertEquals(expectedLocation.getDirection(), marsRover.getLocation().getDirection());
+        assertEquals(result, expectedLocation.buildFormattedLocation());
     }
 
     @Test
@@ -28,13 +26,11 @@ class DemoTest {
         MarsRover marsRover = new MarsRover(location);
 
         // When
-        marsRover.executeCommand(Command.M);
+        String result = marsRover.executeCommand(Command.M);
 
         // Then
         Location expectedLocation = new Location(1,0, Direction.E);
-        assertEquals(expectedLocation.getXCoordinate(), marsRover.getLocation().getXCoordinate());
-        assertEquals(expectedLocation.getYCoordinate(), marsRover.getLocation().getYCoordinate());
-        assertEquals(expectedLocation.getDirection(), marsRover.getLocation().getDirection());
+        assertEquals(expectedLocation.buildFormattedLocation(), result);
     }
 
     @Test
@@ -44,13 +40,11 @@ class DemoTest {
         MarsRover marsRover = new MarsRover(location);
 
         // When
-        marsRover.executeCommand(Command.M);
+        String result = marsRover.executeCommand(Command.M);
 
         // Then
         Location expectedLocation = new Location(0,-1, Direction.S);
-        assertEquals(expectedLocation.getXCoordinate(), marsRover.getLocation().getXCoordinate());
-        assertEquals(expectedLocation.getYCoordinate(), marsRover.getLocation().getYCoordinate());
-        assertEquals(expectedLocation.getDirection(), marsRover.getLocation().getDirection());
+        assertEquals(result, expectedLocation.buildFormattedLocation());
     }
 
     @Test
@@ -60,12 +54,10 @@ class DemoTest {
         MarsRover marsRover = new MarsRover(location);
 
         // When
-        marsRover.executeCommand(Command.M);
+        String result = marsRover.executeCommand(Command.M);
 
         // Then
         Location expectedLocation = new Location(-1,0, Direction.W);
-        assertEquals(expectedLocation.getXCoordinate(), marsRover.getLocation().getXCoordinate());
-        assertEquals(expectedLocation.getYCoordinate(), marsRover.getLocation().getYCoordinate());
-        assertEquals(expectedLocation.getDirection(), marsRover.getLocation().getDirection());
+        assertEquals(result, expectedLocation.buildFormattedLocation());
     }
 }

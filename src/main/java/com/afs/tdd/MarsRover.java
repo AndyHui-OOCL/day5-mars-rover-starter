@@ -7,7 +7,7 @@ public class MarsRover {
         this.location = location;
     }
 
-    public void executeCommand(Command command) {
+    public String executeCommand(Command command) {
         if(command.equals(Command.M)) {
             if(location.getDirection().equals(Direction.N)) {
                 location.setYCoordinate(location.getYCoordinate() + 1);
@@ -19,7 +19,10 @@ public class MarsRover {
                 location.setXCoordinate(location.getXCoordinate() - 1);
             }
         }
+        return location.buildFormattedLocation();
     }
+
+
 
     Location getLocation(){
         return this.location;
