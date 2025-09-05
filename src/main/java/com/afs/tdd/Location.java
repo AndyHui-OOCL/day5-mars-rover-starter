@@ -12,7 +12,8 @@ public class Location {
 
     private static final Map<Direction, Direction> DIR_TO_RIGHT_DIR = Map.of(
             Direction.N, Direction.E,
-            Direction.E, Direction.S
+            Direction.E, Direction.S,
+            Direction.S, Direction.W
     );
 
     private int xCoordinate;
