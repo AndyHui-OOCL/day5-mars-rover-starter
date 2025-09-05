@@ -6,7 +6,8 @@ public class Location {
     private static final Map<Direction, Direction> DIR_TO_LEFT_DIR = Map.of(
             Direction.N, Direction.W,
             Direction.E, Direction.N,
-            Direction.S, Direction.E
+            Direction.S, Direction.E,
+            Direction.W, Direction.S
     );
 
     private int xCoordinate;
