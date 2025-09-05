@@ -16,6 +16,8 @@ public class MarsRover {
            move();
         } else if (command == TURN_LEFT_COMMAND) {
             location.turnLeft();
+        } else if (command == TURN_RIGHT_COMMAND) {
+            location.turnRight();
         }
         return location.buildFormattedLocation();
     }
