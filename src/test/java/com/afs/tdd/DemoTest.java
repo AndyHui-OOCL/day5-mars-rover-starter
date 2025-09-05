@@ -52,4 +52,20 @@ class DemoTest {
         assertEquals(expectedLocation.getYCoordinate(), marsRover.getLocation().getYCoordinate());
         assertEquals(expectedLocation.getDirection(), marsRover.getLocation().getDirection());
     }
+
+    @Test
+    void should_move_upward_when_executeCommand_given_Command_M_And_Direction_W() {
+        //Given
+        Location location = new Location(0,0, Direction.W);
+        MarsRover marsRover = new MarsRover(location);
+
+        // When
+        marsRover.executeCommand(Command.M);
+
+        // Then
+        Location expectedLocation = new Location(-1,0, Direction.W);
+        assertEquals(expectedLocation.getXCoordinate(), marsRover.getLocation().getXCoordinate());
+        assertEquals(expectedLocation.getYCoordinate(), marsRover.getLocation().getYCoordinate());
+        assertEquals(expectedLocation.getDirection(), marsRover.getLocation().getDirection());
+    }
 }
