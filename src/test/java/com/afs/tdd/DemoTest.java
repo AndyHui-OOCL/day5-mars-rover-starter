@@ -161,4 +161,18 @@ class DemoTest {
         Location expectedLocation = new Location(0,0, Direction.W);
         assertEquals(expectedLocation.buildFormattedLocation(), result);
     }
+
+    @Test
+    void should_face_north_when_executeSingleCommand_given_Command_R_And_Direction_W(){
+        //Given
+        Location location = new Location(0,0, Direction.W);
+        MarsRover marsRover = new MarsRover(location);
+
+        // When
+        String result = marsRover.executeSingleCommand('R');
+
+        // Then
+        Location expectedLocation = new Location(0,0, Direction.N);
+        assertEquals(expectedLocation.buildFormattedLocation(), result);
+    }
 }
