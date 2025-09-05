@@ -3,7 +3,7 @@ package com.afs.tdd;
 public class MarsRover {
     private static final char MOVEMENT_COMMAND = 'M';
     private static final char TURN_LEFT_COMMAND = 'L';
-
+    private static final char TURN_RIGHT_COMMAND = 'R';
 
     private final Location location;
 
