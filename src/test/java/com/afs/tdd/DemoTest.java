@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DemoTest {
+
+    public static final char MOVEMENT_COMMAND = 'M';
+
     @Test
     void should_move_upward_when_executeCommand_given_Command_M_And_Direction_N() {
         //Given
@@ -12,7 +15,7 @@ class DemoTest {
         MarsRover marsRover = new MarsRover(location);
 
         // When
-        String result = marsRover.executeCommand(Command.M);
+        String result = marsRover.executeSingleCommand('M');
 
         // Then
         Location expectedLocation = new Location(0,1, Direction.N);
@@ -26,7 +29,7 @@ class DemoTest {
         MarsRover marsRover = new MarsRover(location);
 
         // When
-        String result = marsRover.executeCommand(Command.M);
+        String result = marsRover.executeSingleCommand('M');
 
         // Then
         Location expectedLocation = new Location(1,0, Direction.E);
@@ -40,7 +43,7 @@ class DemoTest {
         MarsRover marsRover = new MarsRover(location);
 
         // When
-        String result = marsRover.executeCommand(Command.M);
+        String result = marsRover.executeSingleCommand('M');
 
         // Then
         Location expectedLocation = new Location(0,-1, Direction.S);
@@ -54,7 +57,7 @@ class DemoTest {
         MarsRover marsRover = new MarsRover(location);
 
         // When
-        String result = marsRover.executeCommand(Command.M);
+        String result = marsRover.executeSingleCommand(MOVEMENT_COMMAND);
 
         // Then
         Location expectedLocation = new Location(-1,0, Direction.W);
