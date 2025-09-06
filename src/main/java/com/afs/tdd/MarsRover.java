@@ -1,6 +1,5 @@
 package com.afs.tdd;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.function.Consumer;
@@ -13,6 +12,8 @@ public class MarsRover {
 
     private static final int FORWARD_MOVING = 1;
     private static final int BACKWARD_MOVING = -1;
+
+    private static final String EMPTY_COMMAND_MESSAGE = "Received invalid or empty command in executeSingleCommand"
 
     private final Map<Character, Consumer<Location>> commandToAction = new HashMap<>();
     private final Location location;
@@ -32,7 +33,7 @@ public class MarsRover {
     public String executeSingleCommand(char command) {
         Consumer<Location> roverAction = commandToAction.get(command);
         if(roverAction == null) {
-            throw new NullPointerException("Received invalid or empty command in executeSingleCommand");
+            throw new NullPointerException(EMPTY_COMMAND_MESSAGE);
         }
         roverAction.accept(location);
         return location.toString();
