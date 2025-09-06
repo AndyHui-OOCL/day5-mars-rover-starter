@@ -6,10 +6,16 @@ import java.util.function.Consumer;
 
 public class MarsRover {
     private static final char MOVE = 'M';
+    private static final char MOVE_BACKWARD = 'B';
     private static final char TURN_LEFT = 'L';
     private static final char TURN_RIGHT = 'R';
 
-    private final Map<Character, Consumer<Location>> commands = new HashMap<>();
+    private static final int FORWARD_MOVING = 1;
+    private static final int BACKWARD_MOVING = -1;
+
+    private static final String EMPTY_COMMAND_MESSAGE = "Received invalid or empty command in executeSingleCommand"
+
+    private final Map<Character, Consumer<Location>> commandToAction = new HashMap<>();
     private final Location location;
 
     public MarsRover(Location location) {
@@ -18,15 +24,16 @@ public class MarsRover {
     }
 
     private void initializeCommands() {
-        commands.put(MOVE, Location::move);
-        commands.put(TURN_LEFT, Location::turnLeft);
-        commands.put(TURN_RIGHT, Location::turnRight);
+        commandToAction.put(MOVE, location -> location.move(FORWARD_MOVING));
+        commandToAction.put(MOVE_BACKWARD, location -> location.move(BACKWARD_MOVING));
+        commandToAction.put(TURN_LEFT, Location::turnLeft);
+        commandToAction.put(TURN_RIGHT, Location::turnRight);
     }
 
     public String executeSingleCommand(char command) {
-        Consumer<Location> roverAction = commands.get(command);
+        Consumer<Location> roverAction = commandToAction.get(command);
         if(roverAction == null) {
-            throw new NullPointerException("Received invalid or empty command in executeSingleCommand");
+            throw new NullPointerException(EMPTY_COMMAND_MESSAGE);
         }
         roverAction.accept(location);
         return location.toString();
@@ -37,3 +44,4 @@ public class MarsRover {
         return location.toString();
     }
 }
+

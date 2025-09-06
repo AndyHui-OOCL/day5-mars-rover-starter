@@ -189,4 +189,74 @@ class DemoTest {
         Location expectedLocation = new Location(-1,1, Direction.W);
         assertEquals(expectedLocation.toString(), result);
     }
+
+    @Test
+    void should_move_backward_when_executeCommands_given_Command_B_and_Direction_N(){
+        //Given
+        Location location = new Location(0,0, Direction.N);
+        MarsRover marsRover = new MarsRover(location);
+
+        // When
+        String result = marsRover.executeSingleCommand('B');
+
+        // Then
+        Location expectedLocation = new Location(0,-1, Direction.N);
+        assertEquals(expectedLocation.toString(), result);
+    }
+
+    @Test
+    void should_move_backward_when_executeCommands_given_Command_B_and_Direction_E(){
+        //Given
+        Location location = new Location(0,0, Direction.E);
+        MarsRover marsRover = new MarsRover(location);
+
+        // When
+        String result = marsRover.executeSingleCommand('B');
+
+        // Then
+        Location expectedLocation = new Location(-1,0, Direction.E);
+        assertEquals(expectedLocation.toString(), result);
+    }
+
+    @Test
+    void should_move_backward_when_executeCommands_given_Command_B_and_Direction_S(){
+        //Given
+        Location location = new Location(0,0, Direction.S);
+        MarsRover marsRover = new MarsRover(location);
+
+        // When
+        String result = marsRover.executeSingleCommand('B');
+
+        // Then
+        Location expectedLocation = new Location(0,1, Direction.S);
+        assertEquals(expectedLocation.toString(), result);
+    }
+
+    @Test
+    void should_move_backward_when_executeCommands_given_Command_B_and_Direction_W(){
+        //Given
+        Location location = new Location(0,0, Direction.W);
+        MarsRover marsRover = new MarsRover(location);
+
+        // When
+        String result = marsRover.executeSingleCommand('B');
+
+        // Then
+        Location expectedLocation = new Location(1,0, Direction.W);
+        assertEquals(expectedLocation.toString(), result);
+    }
+
+    @Test
+    void should_in_proper_location_when_executeBatchCommands_given_backward_commands(){
+        //Given
+        Location location = new Location(0,0, Direction.N);
+        MarsRover marsRover = new MarsRover(location);
+
+        // When
+        String result = marsRover.executeBatchCommands("BBBRMM");
+
+        // Then
+        Location expectedLocation = new Location(2,-3, Direction.E);
+        assertEquals(expectedLocation.toString(), result);
+    }
 }

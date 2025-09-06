@@ -27,9 +27,9 @@ public class Location {
         this.direction = direction;
     }
 
-    public void move() {
-        this.x += direction.getDeltaX();
-        this.y += direction.getDeltaY();
+    public void move(int movementDirection) {
+        this.x += direction.getDeltaX() * movementDirection;
+        this.y += direction.getDeltaY() * movementDirection;
     }
 
     public void turnLeft() {
