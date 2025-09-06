@@ -1,13 +1,18 @@
 package com.afs.tdd;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class MarsRover {
     private static final char MOVE = 'M';
+    private static final char MOVE_BACKWARD = 'B';
     private static final char TURN_LEFT = 'L';
     private static final char TURN_RIGHT = 'R';
+
+    private static final int FORWARD_MOVING = 1;
+    private static final int BACKWARD_MOVING = -1;
 
     private final Map<Character, Consumer<Location>> commands = new HashMap<>();
     private final Location location;
@@ -18,7 +23,8 @@ public class MarsRover {
     }
 
     private void initializeCommands() {
-        commands.put(MOVE, Location::move);
+        commands.put(MOVE, location -> location.move(FORWARD_MOVING));
+        commands.put(MOVE_BACKWARD, location -> location.move(BACKWARD_MOVING));
         commands.put(TURN_LEFT, Location::turnLeft);
         commands.put(TURN_RIGHT, Location::turnRight);
     }
