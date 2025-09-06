@@ -175,4 +175,18 @@ class DemoTest {
         Location expectedLocation = new Location(0,0, Direction.N);
         assertEquals(expectedLocation.toString(), result);
     }
+
+    @Test
+    void should_in_proper_location_when_executeCommands_given_3_consecutive_commands(){
+        //Given
+        Location location = new Location(0,0, Direction.N);
+        MarsRover marsRover = new MarsRover(location);
+
+        //When
+        String result = marsRover.executeBatchCommands("MLM");
+
+        // Then
+        Location expectedLocation = new Location(-1,1, Direction.W);
+        assertEquals(expectedLocation.toString(), result);
+    }
 }
