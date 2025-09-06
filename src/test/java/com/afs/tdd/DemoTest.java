@@ -179,11 +179,11 @@ class DemoTest {
     @Test
     void should_in_proper_location_when_executeCommands_given_3_consecutive_commands(){
         //Given
-        Location location = new Location(0,0, Direction.W);
+        Location location = new Location(0,0, Direction.N);
         MarsRover marsRover = new MarsRover(location);
 
         //When
-        String result = marsRover.executeCommands("MLM");
+        String result = marsRover.executeBatchCommands("MLM");
 
         // Then
         Location expectedLocation = new Location(-1,1, Direction.W);
