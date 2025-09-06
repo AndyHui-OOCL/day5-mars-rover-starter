@@ -217,4 +217,18 @@ class DemoTest {
         Location expectedLocation = new Location(-1,0, Direction.E);
         assertEquals(expectedLocation.toString(), result);
     }
+
+    @Test
+    void should_move_backward_when_executeCommands_given_Command_B_and_Direction_S(){
+        //Given
+        Location location = new Location(0,0, Direction.S);
+        MarsRover marsRover = new MarsRover(location);
+
+        // When
+        String result = marsRover.executeSingleCommand('B');
+
+        // Then
+        Location expectedLocation = new Location(0,1, Direction.S);
+        assertEquals(expectedLocation.toString(), result);
+    }
 }
