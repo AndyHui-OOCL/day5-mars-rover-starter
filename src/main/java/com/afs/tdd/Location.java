@@ -3,59 +3,45 @@ package com.afs.tdd;
 import java.util.Map;
 
 public class Location {
-    private static final Map<Direction, Direction> DIR_TO_LEFT_DIR = Map.of(
+    private int x;
+    private int y;
+    private Direction direction;
+
+    private static final Map<Direction, Direction> LEFT_TURNS = Map.of(
             Direction.N, Direction.W,
             Direction.E, Direction.N,
             Direction.S, Direction.E,
             Direction.W, Direction.S
     );
 
-    private static final Map<Direction, Direction> DIR_TO_RIGHT_DIR = Map.of(
+    private static final Map<Direction, Direction> RIGHT_TURNS = Map.of(
             Direction.N, Direction.E,
             Direction.E, Direction.S,
             Direction.S, Direction.W,
             Direction.W, Direction.N
     );
 
-    private int xCoordinate;
-    private int yCoordinate;
-    private Direction direction;
-
-    Location(int xCoordinate, int yCoordinate, Direction direction) {
-        this.xCoordinate = xCoordinate;
-        this.yCoordinate = yCoordinate;
+    public Location(int x, int y, Direction direction) {
+        this.x = x;
+        this.y = y;
         this.direction = direction;
     }
 
-    public int getXCoordinate() {
-        return xCoordinate;
-    }
-
-    public int getYCoordinate() {
-        return yCoordinate;
-    }
-
-    public Direction getDirection() {
-        return direction;
-    }
-
-    public void setXCoordinate(int xCoordinate){
-        this.xCoordinate = xCoordinate;
-    }
-
-    public void setYCoordinate(int yCoordinate){
-        this.yCoordinate = yCoordinate;
+    public void move() {
+        this.x += direction.getDeltaX();
+        this.y += direction.getDeltaY();
     }
 
     public void turnLeft() {
-        this.direction = DIR_TO_LEFT_DIR.get(this.direction);
+        this.direction = LEFT_TURNS.get(direction);
     }
 
     public void turnRight() {
-        this.direction = DIR_TO_RIGHT_DIR.get(this.direction);
+        this.direction = RIGHT_TURNS.get(direction);
     }
 
-    public String buildFormattedLocation() {
-        return xCoordinate + ":" + yCoordinate + ":"+ direction;
+    @Override
+    public String toString() {
+        return x + ":" + y + ":" + direction;
     }
 }
