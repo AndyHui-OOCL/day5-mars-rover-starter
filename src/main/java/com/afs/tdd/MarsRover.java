@@ -14,7 +14,7 @@ public class MarsRover {
     private static final int FORWARD_MOVING = 1;
     private static final int BACKWARD_MOVING = -1;
 
-    private final Map<Character, Consumer<Location>> commands = new HashMap<>();
+    private final Map<Character, Consumer<Location>> commandToAction = new HashMap<>();
     private final Location location;
 
     public MarsRover(Location location) {
@@ -23,14 +23,14 @@ public class MarsRover {
     }
 
     private void initializeCommands() {
-        commands.put(MOVE, location -> location.move(FORWARD_MOVING));
-        commands.put(MOVE_BACKWARD, location -> location.move(BACKWARD_MOVING));
-        commands.put(TURN_LEFT, Location::turnLeft);
-        commands.put(TURN_RIGHT, Location::turnRight);
+        commandToAction.put(MOVE, location -> location.move(FORWARD_MOVING));
+        commandToAction.put(MOVE_BACKWARD, location -> location.move(BACKWARD_MOVING));
+        commandToAction.put(TURN_LEFT, Location::turnLeft);
+        commandToAction.put(TURN_RIGHT, Location::turnRight);
     }
 
     public String executeSingleCommand(char command) {
-        Consumer<Location> roverAction = commands.get(command);
+        Consumer<Location> roverAction = commandToAction.get(command);
         if(roverAction == null) {
             throw new NullPointerException("Received invalid or empty command in executeSingleCommand");
         }
@@ -43,3 +43,4 @@ public class MarsRover {
         return location.toString();
     }
 }
+
