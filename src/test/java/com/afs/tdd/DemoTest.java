@@ -245,4 +245,18 @@ class DemoTest {
         Location expectedLocation = new Location(1,0, Direction.W);
         assertEquals(expectedLocation.toString(), result);
     }
+
+    @Test
+    void should_in_proper_location_when_executeBatchCommands_given_backward_commands(){
+        //Given
+        Location location = new Location(0,0, Direction.N);
+        MarsRover marsRover = new MarsRover(location);
+
+        // When
+        String result = marsRover.executeBatchCommands("BBBRMM");
+
+        // Then
+        Location expectedLocation = new Location(2,-3, Direction.E);
+        assertEquals(expectedLocation.toString(), result);
+    }
 }
