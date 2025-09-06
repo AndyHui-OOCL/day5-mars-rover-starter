@@ -1,45 +1,34 @@
 package com.afs.tdd;
 
+import java.util.Map;
+import java.util.HashMap;
+import java.util.function.Consumer;
+
 public class MarsRover {
-    private static final char MOVEMENT_COMMAND = 'M';
-    private static final char TURN_LEFT_COMMAND = 'L';
-    private static final char TURN_RIGHT_COMMAND = 'R';
+    private static final char MOVEMENT = 'M';
+    private static final char TURN_LEFT = 'L';
+    private static final char TURN_RIGHT = 'R';
 
-    private final Location location;
+    private final Map<Character, Consumer<Location>> commands = new HashMap<>();
+    private Location location;
 
-    MarsRover(Location location) {
+    public MarsRover(Location location) {
         this.location = location;
+        initializeCommands();
+    }
+
+    private void initializeCommands() {
+        commands.put(MOVEMENT, Location::move);
+        commands.put(TURN_LEFT, Location::turnLeft);
+        commands.put(TURN_RIGHT, Location::turnRight);
     }
 
     public String executeSingleCommand(char command) {
-        if(command == MOVEMENT_COMMAND) {
-           move();
-        } else if (command == TURN_LEFT_COMMAND) {
-            location.turnLeft();
-        } else if (command == TURN_RIGHT_COMMAND) {
-            location.turnRight();
+        Consumer<Location> action = commands.get(command);
+        if(action == null) {
+            throw new NullPointerException("Received invalid or empty command in executeSingleCommand");
         }
-        return location.buildFormattedLocation();
-    }
-
-    private void move(){
-        switch (location.getDirection()) {
-            case N:
-                location.setYCoordinate(location.getYCoordinate() + 1);
-                break;
-            case E:
-                location.setXCoordinate(location.getXCoordinate() + 1);
-                break;
-            case S:
-                location.setYCoordinate(location.getYCoordinate() - 1);
-                break;
-            case W:
-                location.setXCoordinate(location.getXCoordinate() - 1);
-                break;
-        }
-    }
-
-    Location getLocation(){
-        return this.location;
+        action.accept(location);
+        return location.toString();
     }
 }

@@ -19,7 +19,7 @@ class DemoTest {
 
         // Then
         Location expectedLocation = new Location(0,1, Direction.N);
-        assertEquals(expectedLocation.buildFormattedLocation(), result);
+        assertEquals(expectedLocation.toString(), result);
     }
 
     @Test
@@ -33,7 +33,7 @@ class DemoTest {
 
         // Then
         Location expectedLocation = new Location(1,0, Direction.E);
-        assertEquals(expectedLocation.buildFormattedLocation(), result);
+        assertEquals(expectedLocation.toString(), result);
     }
 
     @Test
@@ -47,7 +47,7 @@ class DemoTest {
 
         // Then
         Location expectedLocation = new Location(0,-1, Direction.S);
-        assertEquals(expectedLocation.buildFormattedLocation(), result);
+        assertEquals(expectedLocation.toString(), result);
     }
 
     @Test
@@ -61,7 +61,7 @@ class DemoTest {
 
         // Then
         Location expectedLocation = new Location(-1,0, Direction.W);
-        assertEquals(expectedLocation.buildFormattedLocation(), result);
+        assertEquals(expectedLocation.toString(), result);
     }
 
     @Test
@@ -75,7 +75,7 @@ class DemoTest {
 
         // Then
         Location expectedLocation = new Location(0,0, Direction.W);
-        assertEquals(expectedLocation.buildFormattedLocation(), result);
+        assertEquals(expectedLocation.toString(), result);
     }
 
     @Test
@@ -89,7 +89,7 @@ class DemoTest {
 
         // Then
         Location expectedLocation = new Location(0,0, Direction.N);
-        assertEquals(expectedLocation.buildFormattedLocation(), result);
+        assertEquals(expectedLocation.toString(), result);
     }
 
     @Test
@@ -103,7 +103,7 @@ class DemoTest {
 
         // Then
         Location expectedLocation = new Location(0,0, Direction.E);
-        assertEquals(expectedLocation.buildFormattedLocation(), result);
+        assertEquals(expectedLocation.toString(), result);
     }
 
     @Test
@@ -117,7 +117,7 @@ class DemoTest {
 
         // Then
         Location expectedLocation = new Location(0,0, Direction.S);
-        assertEquals(expectedLocation.buildFormattedLocation(), result);
+        assertEquals(expectedLocation.toString(), result);
     }
 
     @Test
@@ -131,7 +131,7 @@ class DemoTest {
 
         // Then
         Location expectedLocation = new Location(0,0, Direction.E);
-        assertEquals(expectedLocation.buildFormattedLocation(), result);
+        assertEquals(expectedLocation.toString(), result);
     }
 
     @Test
@@ -145,7 +145,7 @@ class DemoTest {
 
         // Then
         Location expectedLocation = new Location(0,0, Direction.S);
-        assertEquals(expectedLocation.buildFormattedLocation(), result);
+        assertEquals(expectedLocation.toString(), result);
     }
 
     @Test
@@ -159,7 +159,7 @@ class DemoTest {
 
         // Then
         Location expectedLocation = new Location(0,0, Direction.W);
-        assertEquals(expectedLocation.buildFormattedLocation(), result);
+        assertEquals(expectedLocation.toString(), result);
     }
 
     @Test
@@ -173,6 +173,6 @@ class DemoTest {
 
         // Then
         Location expectedLocation = new Location(0,0, Direction.N);
-        assertEquals(expectedLocation.buildFormattedLocation(), result);
+        assertEquals(expectedLocation.toString(), result);
     }
 }
