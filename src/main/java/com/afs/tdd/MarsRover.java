@@ -31,4 +31,8 @@ public class MarsRover {
         action.accept(location);
         return location.toString();
     }
+
+    public String executeCommands(String command) {
+        return location.toString();
+    }
 }
